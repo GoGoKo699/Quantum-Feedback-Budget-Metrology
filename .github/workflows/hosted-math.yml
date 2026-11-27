@@ -15,12 +15,12 @@ concurrency:
 
 jobs:
   capture:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository == 'GoGoKo699/Quantum-Feedback-Budget-Metrology' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      CAPTURE_REVISION: '962205f878e63326764f020113109b83139a42bb'
-      CAPTURE_MODE: 'probe'
+      CAPTURE_REVISION: '18193a87a4734d9792d1348d14dd0558183d41e6'
+      CAPTURE_MODE: 'full'
       CAPTURE_PROBE_PAGE: 'science/model.md'
     steps:
       - name: Check out the validation helper source
@@ -42,6 +42,15 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/math-runtime" playwright@1.56.1 mathjax-full@3.2.1
           node "$RUNNER_TEMP/math-runtime/node_modules/playwright/cli.js" install chromium
+      - name: Check the browser's system libraries
+        run: |
+          export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
+          chromium="$(node -p 'require("playwright").chromium.executablePath()')"
+          missing="$(ldd "$chromium" | awk '/not found/ {print $1}')"
+          if [[ -n "$missing" ]]; then
+            printf 'Missing Chromium libraries:\n%s\n' "$missing"
+            exit 1
+          fi
       - name: Compare actual hosted mathematics
         run: |
           export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
@@ -60,7 +69,7 @@ jobs:
                 --output "$RUNNER_TEMP/hosted-math-first" || {
                 status=$?
                 report="$RUNNER_TEMP/hosted-math-first/hosted-report.json"
-                if test -f "$report" && grep -Eq 'HTTP (502|503|504)' "$report"; then
+                if test -f "$report" && grep -Eq 'transport_failure: Error: HTTP 50[234]' "$report"; then
                   node verification/hosted_math/capture_hosted_math.cjs "${args[@]}" \
                     --output "$RUNNER_TEMP/hosted-math" \
                     --resume-from "$RUNNER_TEMP/hosted-math-first"
