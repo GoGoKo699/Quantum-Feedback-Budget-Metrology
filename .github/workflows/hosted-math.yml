@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      CAPTURE_REVISION: '26370050d557843bcd292509b3eb28635ac8b3f0'
+      CAPTURE_REVISION: '431716dab24d09bee0996cd606f6d8adc54e98da'
       CAPTURE_MODE: 'full'
       CAPTURE_PROBE_PAGE: 'science/model.md'
     steps:
