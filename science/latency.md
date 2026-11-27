@@ -11,7 +11,7 @@ Write $`F^*_{\delta,\mathrm{sign}}(T,B)`$ for the supremum of the attainable loc
 ```math
 \boxed{
 \lim_{T\to\infty}\frac{F^*_{\delta,\mathrm{sign}}(T,B)}{T^2}
-=G_\delta(b)^2,qquad
+=G_\delta(b)^2,\qquad
 G_\delta(b)=
 \max_{\substack{0\le x_i\le1\\\sum_i\gamma_i x_i\le b}}
 \sum_i w_i e^{-2\gamma_i\delta}x_i .
@@ -37,7 +37,7 @@ For $`t\ge\delta`$, set $`\widehat q_i(t)=(-1)^{N_i(t-\delta)+K_i(t)}`$ and $`a_
 To control the accumulated residual, choose a pure initial probe and let $`v_i=PZ_i|\psi\rangle`$, with $`P=I-|\psi\rangle\langle\psi|`$ as in the Fisher-information proof. An initial mixed probe can be purified. Define
 
 ```math
-R(t)=\sum_i w_i\bigl[q_i(t)-a_i\widehat q_i(t)\bigr]v_i,qquad
+R(t)=\sum_i w_i\bigl[q_i(t)-a_i\widehat q_i(t)\bigr]v_i,\qquad
 W=\sum_i w_i .
 ```
 
