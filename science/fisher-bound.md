@@ -19,7 +19,7 @@ The derivative of the time-ordered unitary, with the record held fixed, has inpu
 F \le \mathbb E\left\|\sum_i w_i\int_0^T v_i(t)\,dt\right\|^2.
 ```
 
-Each $`v_i`$ has norm at most one. An uncontrolled jump at sensor $`i`$ sends $`v_i`$ to $`-v_i`$ and leaves the other $`v_j`$ unchanged. A unitary control contributes the difference between the projected, conjugated observables immediately before and after the gate. Its contribution to $`v_i`$ has norm at most $`\|V^\dagger Z_iV-Z_i\|`$. Between jumps and gates, the sensor contribution from the control Hamiltonian has norm at most $`\|[H_c(t),Z_i]\|\,dt`$. Let $`C_i(t)`$ be the sum of these control increments up to time $`t`$. The budget implies $`\sum_i \operatorname{TV}(C_i)\le 2B`$ pathwise.
+Each $`v_i`$ has norm at most one. An uncontrolled jump at sensor $`i`$ sends $`v_i`$ to $`-v_i`$ and leaves the other $`v_j`$ unchanged. A unitary control contributes the difference between the projected, conjugated observables immediately before and after the gate. Its contribution to $`v_i`$ has norm at most $`\|V^\dagger Z_iV-Z_i\|`$. Between jumps and gates, the sensor contribution from the control Hamiltonian has norm at most $`\|[H_c(t),Z_i]\|\,dt`$. Let $`C_i(t)`$ be the sum of these control increments up to time $`t`$. The budget implies $`\sum_i \mathrm{TV}(C_i)\le 2B`$ pathwise.
 
 Write $`N_i(t)`$ for the counting process of physical flips on sensor $`i`$ and $`\widetilde N_i(t)=N_i(t)-\gamma_it`$ for its compensated version. At a jump time use the pre-jump $`v_i(t-)`$ for the physical flip and put any immediate correction in $`C_i`$. This ordering makes the natural-jump integrand predictable even when a control responds without delay. Integrating $`dv_i=-2v_i(t-)\,dN_i(t)+dC_i(t)`$ gives
 
@@ -73,7 +73,7 @@ d_i=\mathbb E A_i^2=\frac{T}{\gamma_i}-\frac{1-e^{-2\gamma_iT}}{2\gamma_i^2}.
 For a fixed record the Fisher bound is the variance of $`\sum_i w_i A_i Z_i`$ in the initial state. All pair coefficients in its *averaged* variance are nonnegative because $`\mathbb E[A_iA_j]=a_i a_j`$ for distinct sensors. Each $`Z_i`$ variance and each pair covariance is at most one. A GHZ state saturates all these inequalities at once, and the mark-adjusted local quadrature parity attains its averaged variance. The optimal zero-action value is
 
 ```math
-F_{B=0}=\sum_i w_i^2 d_i+2\sum_{i<j} w_iw_j a_i a_j.
+F_{B=0}=\sum_i w_i^2 d_i+2\sum_{i\lt j} w_iw_j a_i a_j.
 ```
 
 For homogeneous sensors this reproduces the GHZ ultimate-information expression of Albarelli, Rossi, Tamascelli and Genoni with their rate convention $`\kappa=2\gamma`$. They reported numerical saturation by perfect photodetection through fourteen sensors. The sign-integral calculation gives exact saturation for the marked Poisson record and optimality over input states under the stated zero-action convention. The homogeneous expression grows as $`N^2`$ at fixed positive $`T`$, and as $`NT/\gamma+O(N^2/\gamma^2)`$ at long time. [Albarelli et al., Quantum 2, 110 (2018), Sec. 3.2, Eq. (19)](https://arxiv.org/html/1803.05891v3#S3.SS2)

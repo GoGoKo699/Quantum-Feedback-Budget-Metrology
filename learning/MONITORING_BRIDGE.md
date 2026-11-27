@@ -22,9 +22,9 @@ Use two equally weighted sensors, the input $`(|00\rangle+|11\rangle)/\sqrt{2}`$
 
 | Time | Physical event | Signs with one correction available |
 | --- | --- | --- |
-| $`0\le t<1`$ | Free interrogation | $`(+1,+1)`$ |
+| $`0\le t\lt 1`$ | Free interrogation | $`(+1,+1)`$ |
 | $`t=1`$ | The controller uses its pulse immediately after the recorded flip of sensor 1 | $`(+1,+1)`$ after the pulse |
-| $`1<t<3`$ | Free interrogation | $`(+1,+1)`$ |
+| $`1\lt t\lt 3`$ | Free interrogation | $`(+1,+1)`$ |
 | $`3\le t\le4`$ | The recorded flip of sensor 2 remains uncorrected | $`(+1,-1)`$ |
 
 The signs integrate to $`4`$ and $`2`$, so the signed exposure is $`A=6`$. The record includes both flips, even after the controller spends its pulse. The final pair of basis states is $`|01\rangle,|10\rangle`$, and the conditioned state is

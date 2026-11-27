@@ -59,8 +59,8 @@ Prepare the GHZ probe and work on the shifted clock. Allocate windows of length 
 Arbitrary coherent controls can exceed the sign-control optimum. One noisy sensor and a noiseless reference suffice for every positive delay. Let the sensor $`s`$ and a noiseless reference qubit $`a`$ start in $`(|0,0\rangle+|1,1\rangle)/\sqrt2`$. At deterministic times $`h,2h,\ldots`$, refresh the sensor using a blank noiseless scratch qubit $`c`$. The following composite instantaneous unitary is a single control in the stated operator-norm convention:
 
 ```math
-V=\operatorname{CNOT}_{a\to s}\;\operatorname{SWAP}_{s,c}\;
-\operatorname{CNOT}_{a\to s}.
+V=\mathrm{CNOT}_{a\to s}\;\mathrm{SWAP}_{s,c}\;
+\mathrm{CNOT}_{a\to s}.
 ```
 
 An interval's net $`X`$ error $`e`$ is the sensor's bitwise difference from the reference. On either computational basis branch the gate acts as $`|j,j\oplus e,0\rangle\mapsto|j,j,e\rangle`$, restoring the sensor and retaining the accumulated relative phase. The scratch qubit stores only $`e`$. As an operator identity, $`V^\dagger Z_s V=Z_aZ_c`$, so the refresh costs $`\|Z_aZ_c-Z_s\|/2=1`$. Its schedule has no dependence on the marks. Once the full record of a block has arrived, its scratch qubit can be reset from the known bit $`e`$ by an ancilla-only operation that leaves $`Z_s`$ unchanged. At most $`\lceil\delta/h\rceil+2`$ scratch qubits suffice with this recycling.
