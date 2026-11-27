@@ -1,0 +1,16 @@
+# Quantum Feedback Budget Metrology
+
+> Exact long-time local sensitivity under a hard action budget for independent, monitored transverse noise.
+
+## Routes
+
+- [Model](science/model.md): Physical controls, charge convention, local estimation target, and main law.
+- [Feedback and readout](science/feedback.md): Allocate correction windows, enforce the cap, and estimate frequency from signed exposure and terminal parity.
+- [Converse](science/fisher-bound.md): Finite information bound, asymptotic resource law, and exact zero-action result.
+- [Latency](science/latency.md): Optimal delayed sign control, priority changes, and a coherent refresh that beats the restricted class.
+- [Related work](references/RELATED_WORK.md): Provenance of the monitored sensor, recovery and Fisher-information ingredients.
+- [Tutorial bridge](learning/MONITORING_BRIDGE.md): How to read the educational anchor and apply it to the proofs.
+- [Milestones](learning/MILESTONES.md): One thirty-stop route through the project.
+- [Checks](verification/README.md): Commands, expected numbers, and validation limits.
+
+The main theorem fixes a finite array and takes the interrogation time to infinity at a prescribed hard action rate. At positive delay the exact optimum is over sign-preserving controls. The coherent refresh is a lower bound in the larger class. The benchmark concerns local Fisher information.
